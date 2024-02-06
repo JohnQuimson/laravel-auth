@@ -29,7 +29,7 @@ Route::middleware(['auth', 'verified'])
 
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-        Route::get('project', ProjectController::class);
+        Route::resource('projects', ProjectController::class);
     });
 
 // Route::middleware('auth')->group(function () {
