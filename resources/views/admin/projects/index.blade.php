@@ -3,13 +3,10 @@
 @section('content')
     <div class="container text-center">
         {{-- <a href="{{ route('comics.create') }}" class="btn btn-warning text-white">Add Comic</a> --}}
-
-        <div class="row pt-5">
-
-
+        <div class="row py-5">
             @foreach ($projects as $project)
                 {{-- card --}}
-                <div class="col-12 col-md-6 col-xl-4">
+                <div class="col-12 col-md-6 col-xl-4 d-flex justify-content-center g-5">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
                             <h5 class="card-title">{{ $project->title }}</h5>
