@@ -21,9 +21,10 @@
                                 <span>{{ $project->last_updated }}</span>
                             </div>
                             <div class="cont-btn d-flex justify-content-around">
+                                {{-- Show --}}
                                 <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-warning">Info</a>
                                 {{-- Delete --}}
-                                <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
+                                <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <input type="submit" value="Cancella" class="btn btn-danger">
