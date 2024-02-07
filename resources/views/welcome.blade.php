@@ -22,4 +22,5 @@
             </div>
         </div>
     </main>
+    @include('layouts.shared.footer')
 @endsection

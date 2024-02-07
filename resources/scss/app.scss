@@ -79,3 +79,31 @@ body {
         }
     }
 }
+
+// FOOTER --------------------
+footer {
+    background-color: #050f1d;
+
+    ul {
+        margin-bottom: 0;
+        list-style-type: none;
+        padding: 10px 20px;
+
+        a {
+            color: #474c58;
+            text-decoration: none;
+
+            &:hover {
+                color: #767980;
+            }
+        }
+    }
+
+    .cont-sx {
+        font-size: 14px;
+    }
+
+    .cont-dx {
+        font-size: 22px;
+    }
+}
