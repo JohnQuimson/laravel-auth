@@ -19,9 +19,11 @@
                             <div class="cont-info d-flex justify-content-around">
                                 <span>{{ $project->main_language }}</span>
                                 <span>{{ $project->last_updated }}</span>
+                                <span>{{ $project->slug }}</span>
                             </div>
                             <div class="cont-btn d-flex justify-content-around">
-                                <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-warning">Info</a>
+                                {{-- show --}}
+                                {{-- <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-warning">Info</a> --}}
                                 {{-- Delete --}}
                                 <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
                                     @csrf

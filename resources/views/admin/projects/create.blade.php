@@ -21,6 +21,7 @@
             {{-- titolo --}}
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Titolo</label>
+                @csrf
                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}">
 
                 @error('title')
