@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreProjectRequest;
-use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -14,7 +14,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('admin.projects.index');
+        $projects = Project::all();
+
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -22,15 +24,22 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProjectRequest $request)
+    public function store(Request $request)
     {
-        //
+        $data = $this->validation($request->all());
+
+        $project = new Project();
+
+        $project->fill($data);
+        $project->save();
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
@@ -38,7 +47,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -46,13 +55,13 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(Request $request, Project $project)
     {
         //
     }

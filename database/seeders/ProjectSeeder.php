@@ -13,18 +13,35 @@ class ProjectSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(Faker $faker): void
+    // public function run(Faker $faker): void
+    // {
+    //     for ($i = 0; $i < 50; $i++) {
+    //         $project = new Project();
+
+    //         $project->title = $faker->sentence(3);
+    //         $project->img = $faker->imageUrl(640, 480, 'animals', true);
+    //         $project->creation_date = $faker->date();
+    //         $project->description = $faker->text(300);
+    //         $project->slug = Str::of($project->title)->slug('-');
+
+    //         $project->save();
+    //     }
+    // }
+
+    public function run(): void
     {
-        for ($i = 0; $i < 50; $i++) {
-            $project = new Project();
+        $projects = config('projects_db');
 
-            $project->title = $faker->sentence(3);
-            $project->img = $faker->imageUrl(640, 480, 'animals', true);
-            $project->creation_date = $faker->date();
-            $project->description = $faker->text(300);
-            $project->slug = Str::of($project->title)->slug('-');
+        foreach ($projects as $project) {
+            $newProject = new Project();
 
-            $project->save();
+            $newProject->title = $project['name'];
+            $newProject->visibility = $project['visibility'];
+            $newProject->last_updated = $project['last_updated'];
+            $newProject->main_language = $project['language'];
+            // $newProject->slug = $project['slug'];
+
+            $newProject->save();
         }
     }
 }
