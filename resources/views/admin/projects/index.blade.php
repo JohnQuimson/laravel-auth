@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container text-center">
-        {{-- <a href="{{ route('comics.create') }}" class="btn btn-warning text-white">Add Comic</a> --}}
+        {{-- add project --}}
+        <a href="{{ route('admin.projects.create') }}" class="btn btn-success text-white mt-5">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+        {{-- Add project --}}
         <div class="row py-5">
             @foreach ($projects as $project)
                 {{-- card --}}

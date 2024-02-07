@@ -63,7 +63,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $data = $this->validation($request->all());
+
+        $project->update($data);
     }
 
     /**
@@ -71,6 +73,30 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index');
+    }
+
+    private function validation($data)
+    {
+        $validator = Validator::make($data, [
+            'title' => 'required|max:70',
+            'visibility' => 'required|max:50',
+            'last_updated' => 'required|max:100',
+            'main_language' => 'required|max:200',
+        ], [
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.max' => 'Il titolo deve avere massimo :max caratteri',
+            'visibility.required' => 'Il campo visibility è obbligatorio',
+            'visibility.max' => 'Il campo visibility deve avere massimo :max caratteri',
+            'last_updated.required' => 'Il campo last_updated è obbligatorio',
+            'last_updated.max' => 'Il campo last_updated deve avere massimo :max caratteri',
+            'main_language.required' => 'Il campo main_language è obbligatorio',
+            'main_language.max' => 'Il campo main_language deve avere deve avere massimo :max caratteri',
+
+
+        ])->validate();
+
+        return $validator;
     }
 }
