@@ -10,7 +10,7 @@
                     </div>
                 @endif
                 <div class="alert alert-success">
-                    Sei loggato !
+                    {{ __('Sei loggato !') }}
                 </div>
             </div>
         </div>

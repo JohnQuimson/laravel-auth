@@ -33,13 +33,23 @@ class ProjectSeeder extends Seeder
         $projects = config('projects_db');
 
         foreach ($projects as $project) {
+
+
             $newProject = new Project();
+
+            // $newProject->title = $project['name'];
+            // $newProject->visibility = $project['visibility'];
+            // $newProject->last_updated = $project['last_updated'];
+            // $newProject->main_language = $project['language'];
+            // $newProject->slug = $project['slug'];
 
             $newProject->title = $project['name'];
             $newProject->visibility = $project['visibility'];
             $newProject->last_updated = $project['last_updated'];
             $newProject->main_language = $project['language'];
-            // $newProject->slug = $project['slug'];
+            $newProject->slug = Str::of($newProject->title)->slug('-');
+
+
 
             $newProject->save();
         }
