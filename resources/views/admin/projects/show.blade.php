@@ -10,5 +10,7 @@
             <span>{{ $project->main_language }}</span>
             <span>{{ $project->last_updated }}</span>
         </div>
+
+        <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-warning">Modifica</a>
     </div>
 @endsection

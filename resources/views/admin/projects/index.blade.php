@@ -4,6 +4,7 @@
     <div class="container text-center">
         {{-- add project --}}
         <a href="{{ route('admin.projects.create') }}" class="btn btn-success text-white mt-5">
+            aggiungi progetto
             <i class="fa-solid fa-plus"></i>
         </a>
         {{-- Add project --}}
@@ -19,8 +20,15 @@
                                 <span>{{ $project->main_language }}</span>
                                 <span>{{ $project->last_updated }}</span>
                             </div>
-                            <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-warning">Show</a>
-                            <a href="#" class="btn btn-danger">delete</a>
+                            <div class="cont-btn d-flex justify-content-around">
+                                <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-warning">Info</a>
+                                {{-- Delete --}}
+                                <form action="{{ route('admin.projects.destroy', $project->id) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" value="Cancella" class="btn btn-danger">
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
