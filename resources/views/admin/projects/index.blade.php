@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <main>
+    <main class="main-index">
         <div class="container text-center">
             {{-- add project --}}
             <a href="{{ route('admin.projects.create') }}" class="btn btn-success text-white mt-5">

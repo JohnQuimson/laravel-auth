@@ -28,57 +28,58 @@
     <body>
         <div id="app">
 
-            <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
+            {{-- <header class="header-dashboard navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-2 shadow">
                 <div class="row justify-content-between">
 
-                    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="/"><i class="fa-solid fa-house fs-3"></i></a>
+
                     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                 </div>
                 <div class="navbar-nav">
-                    <div class="nav-item text-nowrap ms-2">
-                        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                            <i class="fa-solid fa-right-from-bracket fs-2"></i>
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    </div>
-                </div>
-            </header>
 
-            <div class="container-fluid vh-100">
-                <div class="row h-100">
-                    <!-- Definire solo parte del menu di navigazione inizialmente per poi
+                </div>
+            </header> --}}
+
+            {{-- <div class="container-fluid vh-100">
+                <div class="row h-100"> --}}
+            <!-- Definire solo parte del menu di navigazione inizialmente per poi
         aggiungere i link necessari giorno per giorno
         -->
-                    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark navbar-dark sidebar collapse">
-                        <div class="position-sticky pt-3">
-                            <ul class="nav flex-column">
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}" href="{{ route('admin.dashboard') }}">
-                                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-white {{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}" href="{{ route('admin.projects.index') }}">
-                                        <i class="fa-solid fa-bars-progress fa-lg fa-fw"></i> Projects
-                                    </a>
-                                </li>
-                            </ul>
-
-
-                        </div>
-                    </nav>
-
-                    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                        @yield('content')
-                    </main>
+            <div class="jq-sidebar">
+                {{-- HOME --}}
+                <div class="header-sidebar">
+                    <a href="/">
+                        <i class="fa-solid fa-house fs-3"></i>
+                    </a>
+                </div>
+                {{-- list options --}}
+                <div class="sidebar-options">
+                    <a class="{{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}" href="{{ route('admin.dashboard') }}">
+                        <i class="fa-solid fa-tachometer-alt fa-lg fa-fw"></i> Dashboard
+                    </a>
+                    <a class="{{ Route::currentRouteName() == 'dashboard' ? 'bg-secondary' : '' }}" href="{{ route('admin.projects.index') }}">
+                        <i class="fa-solid fa-bars-progress fa-lg fa-fw"></i> Projects
+                    </a>
+                </div>
+                {{-- sidebar-logout --}}
+                <div class="sidebar-logout">
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        <i class="fa-solid fa-right-from-bracket fs-2"></i>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
+
+            {{-- content dashboard --}}
+            @yield('content')
+
+            {{-- </div>
+            </div> --}}
 
         </div>
     </body>

@@ -49,15 +49,11 @@
                         <ul class="navbar-nav me-auto">
                             <li>
                                 <div class="cont-logo">
-                                    <a href="{{ route('admin.dashboard') }}">
+                                    <a href="{{ url('/') }}">
                                         <img src="{{ asset('img/logo.png') }}" alt="">
                                     </a>
                                 </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url('/') }}"><i class="fa-solid fa-house"></i></a>
-                            </li>
-
                         </ul>
 
 
