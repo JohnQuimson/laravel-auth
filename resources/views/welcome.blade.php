@@ -1,25 +1,25 @@
 @extends('layouts.app')
+
 @section('content')
-    <div class="jumbotron p-5 mb-4 bg-light rounded-3">
-        <div class="container py-5">
-            <div class="logo_laravel">
+    <main class="main-welcome">
+        <div class="jumbotron p-5 mb-4 rounded-3">
+            <div class="container py-5">
+
+                <span class="salute">Hi, my name is</span>
+
+                <h1 class="display-5 fw-bold">
+                    John Henric Quimson
+                </h1>
+
+                <p class="col-md-8 my-job">*almost* Full-Stack Developer</p>
+
+                <p class="short-description">I'm a student of Boolean, studying to become a full-stack web developer. Big fan of technology and outdoor activities.</p>
+
+                <a href="https://github.com/JohnQuimson" class="github-btn" target="_blank">
+                    my github
+                </a>
 
             </div>
-            <h1 class="display-5 fw-bold">
-                John Henric Quimson
-            </h1>
-
-            <p class="col-md-8 fs-4">*quasi* Full-Stack Developer</p>
-
-            <a href="https://github.com/JohnQuimson" class="btn btn-primary btn-lg">my github</a>
-
         </div>
-    </div>
-
-    <div class="content">
-        <div class="container">
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus,
-                facilis illum rerum officiis accusamus dolores!</p>
-        </div>
-    </div>
+    </main>
 @endsection

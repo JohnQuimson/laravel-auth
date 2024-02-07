@@ -5,11 +5,13 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
+
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <title>JQ's Portfolio</title>
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -23,12 +25,12 @@
         <div id="app">
 
 
-            <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <nav class="jq-navbar navbar navbar-expand-md navbar-light">
                 <div class="container">
                     <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                        <div class="logo_laravel">
-                            <img src="../../public/img/logo.png" alt="">
-                        </div>
+                        {{-- <div class="logo_laravel">
+                            <img src="{{ asset('img/logo.png') }}" alt="">
+                        </div> --}}
                         {{-- config('app.name', 'Laravel') --}}
                     </a>
 
@@ -40,26 +42,37 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav me-auto">
+                            <li>
+                                <div class="cont-logo">
+                                    <a href="{{ route('admin.dashboard') }}">
+                                        <img src="{{ asset('img/logo.png') }}" alt="">
+                                    </a>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ url('/') }}"><i class="fa-solid fa-house"></i></a>
                             </li>
+
                         </ul>
+
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
                             @guest
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link " href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                                 @if (Route::has('register'))
                                     <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link " href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif
                             @else
+                                {{-- Utente Dropdown --}}
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                        v-pre>
                                         {{ Auth::user()->name }}
                                     </a>
 
@@ -82,9 +95,9 @@
                 </div>
             </nav>
 
-            <main class="">
-                @yield('content')
-            </main>
+
+            @yield('content')
+
         </div>
     </body>
 

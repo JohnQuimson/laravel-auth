@@ -1,1 +1,77 @@
 @import "~bootstrap/scss/bootstrap";
+
+// NAVBAR --------------------
+.jq-navbar {
+    background-color: #0a1930;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    .nav-link {
+        color: #74c6cc;
+
+        &:hover {
+            color: #b2dde0;
+        }
+    }
+
+    .cont-logo {
+        height: 50px;
+        width: 50px;
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    .dropdown-menu {
+        background-color: #74c6cc;
+    }
+}
+
+// Main Welcome --------------------
+.main-welcome {
+    background-color: #0a1930;
+    height: 100vh;
+    padding-top: 100px;
+
+    .salute {
+        color: #74c6cc;
+        font-weight: 600;
+    }
+
+    h1 {
+        color: #cbd7f3;
+        text-transform: uppercase;
+        font-size: 70px;
+    }
+
+    .my-job {
+        color: #8995b5;
+        font-size: 50px;
+        font-weight: 600;
+    }
+
+    .short-description {
+        width: 40%;
+        color: #8995b5;
+        margin-bottom: 50px;
+    }
+
+    .github-btn {
+        text-decoration: none;
+        border: 1px solid #74c6cc;
+        color: #74c6cc;
+        padding: 10px 30px;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: #74c6cc;
+            color: #0a1930;
+            box-shadow: 0 0 5px #74c6cc, 0 0 25px #74c6cc, 0 0 50px #74c6cc;
+            -webkit-box-reflect: below 1px linear-gradient(transparent, #0a1930);
+        }
+    }
+}
